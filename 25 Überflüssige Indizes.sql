@@ -23,8 +23,5 @@ select object_name(i.object_id) as TableName
  where objectproperty(i.object_id, 'IsUserTable') = 1
 go
 
---Optimierer entscheidet sich für Index-scan , wenn die der günstiger als Table-scan ist
--- user_scan, index_scan  ..nie gebrauchte Indizes evtl löschen
--- user_scan, index_scan  .. besser als table scan
 
 sp_blitzindex 'northwind'  Brent Ozar
