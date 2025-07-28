@@ -16,6 +16,8 @@ select * from kundeumsatz
 GO 9 --keine Variable darin möglich
 -- 15 Sek --1,1 Mio Datensätze
 
+select * from kundeumsatz
+
 
 alter table kundeumsatz add id int identity
 
@@ -23,6 +25,27 @@ alter table kundeumsatz add id int identity
 select top 3 * from kundeumsatz
 
 set statistics io, time on
+
+select id from kundeumsatz where id <2000
+
+select * from kundeumsatz
+
+
+
+--Überflüssige Indizes  entfernen
+--fehlende IX finden --> Strategie auf Basis eines Workloads
+--IX Warten: Rebuild od Reorg
+--Statistiken  aktualisieren
+
+
+SEEK ist gut
+SCAN ist schlecht
+Lookup ist auch schlecht
+
+select * from sys.dm_db_index_usage_stats
+
+
+
 
 
 select country, city, sum(freight) 
